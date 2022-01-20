@@ -1,0 +1,487 @@
+fileFormatVersion: 2
+guid: 4a9096ffddfe9594f9318f5c7e65a7c1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 605066825900528299
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_0
+  - first:
+      213: -7367244017960328953
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_1
+  - first:
+      213: -2546983915083677471
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_2
+  - first:
+      213: 3007043031095108371
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_3
+  - first:
+      213: -6617189258162980394
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_4
+  - first:
+      213: 844582590155380788
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_5
+  - first:
+      213: -7319052865951501816
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_6
+  - first:
+      213: -7761253515378128409
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_7
+  - first:
+      213: 6681985422792973094
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_8
+  - first:
+      213: -5546821055116347762
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_9
+  - first:
+      213: -3841065007577544278
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_10
+  - first:
+      213: 1430717836114942871
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_11
+  - first:
+      213: -4605264254838463340
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_12
+  - first:
+      213: 7868152000886780692
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_13
+  - first:
+      213: 5904613839894639612
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_14
+  - first:
+      213: -3411008452738807330
+    second: Exordium_ProgrammerAssignment_SpriteSheet_v1_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 15
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 57
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3522d47b56a88134cb93ed3629e8cafd
+      internalID: 605066825900528299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 57
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6edd27a21d26b5e44bbb0d29e2c80503
+      internalID: -7367244017960328953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_2
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 57
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e0c8931209bf241b3d82de6f176a39
+      internalID: -2546983915083677471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 57
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d248aff6950e004ab97a4a4a0a837b3
+      internalID: 3007043031095108371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 38
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58365656a2fd1b64ca128180588d0be6
+      internalID: -6617189258162980394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_5
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 38
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26b01385ea51494e83cf0b87baec9c9
+      internalID: 844582590155380788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_6
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 38
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a93e2fbe45f30c4dbe6160710cfd642
+      internalID: -7319052865951501816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_7
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 38
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfaa1692f348a5b44b9b3c32bb92216f
+      internalID: -7761253515378128409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 19
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a597c437336d904d8eb22fbc1eed6c4
+      internalID: 6681985422792973094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_9
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 19
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49a36140f45cc348bfee146276b727d
+      internalID: -5546821055116347762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_10
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 19
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9c0c8e62b188be4699bc62c92eea649
+      internalID: -3841065007577544278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_11
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 19
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d61da7cf69f925408cec9649ff6ed9f
+      internalID: 1430717836114942871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c06e8904b978da459126f85dbc15295
+      internalID: -4605264254838463340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_13
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25bb60dc8c8ce9c408675e13b4d76e6e
+      internalID: 7868152000886780692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_14
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0313c3be4aa7f34fab41b431ee4177a
+      internalID: 5904613839894639612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exordium_ProgrammerAssignment_SpriteSheet_v1_15
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 0
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05427a948bf6f394986312ac0ae5ee3c
+      internalID: -3411008452738807330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
