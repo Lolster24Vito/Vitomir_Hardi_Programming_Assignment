@@ -1,26 +1,10 @@
-<<<<<<< Updated upstream
-﻿using System.Collections;
-=======
 ﻿using System;
 using System.Collections;
->>>>>>> Stashed changes
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
-<<<<<<< Updated upstream
-
-   [SerializeField]private Inventory _inventory;
-    [SerializeField] private InventoryUI _inventoryUI;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _inventory = new Inventory();
-    }
-
-=======
     private static PlayerInventoryManager _instance;
 
     public static PlayerInventoryManager Instance { get { return _instance; } }
@@ -43,17 +27,10 @@ public class PlayerInventoryManager : MonoBehaviour
             _instance = this;
         }
     }
->>>>>>> Stashed changes
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
         {
-<<<<<<< Updated upstream
-            if(collision.TryGetComponent<ItemWorldHolder>(out ItemWorldHolder itemHolder))
-            {
-                _inventory.AddItem(itemHolder.GetItem());
-                _inventoryUI.AddItem(itemHolder.GetItem());
-=======
             if (collision.TryGetComponent<ItemWorld>(out ItemWorld itemWorld))
             {
                 if(itemWorld.GetItem() is ItemPermanentUse)
@@ -65,17 +42,10 @@ public class PlayerInventoryManager : MonoBehaviour
                 AddItem(itemWorld.GetItem());
                 OnItemAdded?.Invoke(itemWorld);
                 //_inventoryUI.AddItem(itemHolder.GetItem());
->>>>>>> Stashed changes
                 Destroy(collision.gameObject);
             }
         }
     }
-<<<<<<< Updated upstream
-
-    // Update is called once per frame
-
-}
-=======
     void AddItem(Item item)
     {
         if (_items.Count > MAX_ITEMS)
@@ -97,4 +67,3 @@ public class PlayerInventoryManager : MonoBehaviour
     
 }
 
->>>>>>> Stashed changes
