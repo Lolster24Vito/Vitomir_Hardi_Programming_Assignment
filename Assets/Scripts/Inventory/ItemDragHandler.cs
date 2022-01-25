@@ -50,8 +50,16 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 //DROP ITEM
+                if (_itemUiHolder != null)
+                {
                 PlayerInventoryManager.Instance.DropItem(_itemUiHolder);
                 _itemUiHolder.RemoveItem();
+                }
+                if (_itemEquipableUiHolder!=null)
+                {
+                    PlayerInventoryManager.Instance.DropItem(_itemEquipableUiHolder.GetItem(),1);
+                    _itemEquipableUiHolder.RemoveItem();
+                }
 
             }
             else {
@@ -68,7 +76,7 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
                 }
 
                 
-                //if you click on any item slot automatically equip it.
+                //if you click on any item slot automatically equips it.
                 if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<ItemEquipableUiHolder>(out ItemEquipableUiHolder mousePositionEquipableUIHolder))
                 { 
                     if(_itemUiHolder.GetItem()!=null&&_itemUiHolder.GetItem() is ItemEquipable)
@@ -80,33 +88,45 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
             }
         }
+
         if (eventData.button == PointerEventData.InputButton.Right || eventData.button == PointerEventData.InputButton.Middle)
         {
-
 
             if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<ItemUiHolder>(out ItemUiHolder mousePositionItemUiHolder))
             {
                 if (mousePositionItemUiHolder.GetItem() != null)
                 {
+                    _itemUiHolder.GetItem().Use();
+                    if(mousePositionItemUiHolder.GetItem() is ItemConsumables)
+                    {
+                        mousePositionItemUiHolder.ReduceAmount();
+                        if (mousePositionItemUiHolder.GetAmount() <= 0)
+                        {
+                            PlayerInventoryManager.Instance.RemoveItem(_itemUiHolder);
+                            _itemUiHolder.RemoveItem();
+                        }
+                    }
+                    if(mousePositionItemUiHolder.GetItem() is ItemEquipable)
+                    {
+                     PlayerInventoryManager.Instance.RemoveItem(_itemUiHolder);
+                     _itemUiHolder.RemoveItem();
+                    }
 
-                    EquipItem();
                 }
             }
-            
-
-        }
-        if (eventData.button == PointerEventData.InputButton.Right || eventData.button == PointerEventData.InputButton.Middle)
-        {
-            
-
-            if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<ItemUiHolder>(out ItemUiHolder mousePositionItemUiHolder))
+            if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<ItemEquipableUiHolder>(out ItemEquipableUiHolder mousePositionEquipableUI))
             {
-                mousePositionItemUiHolder.GetItem().Use();
+                if (mousePositionEquipableUI.GetItem() != null)
+                {
+                    PlayerInventoryManager.Instance.AddItem(mousePositionEquipableUI.GetItem(), 1);
+                    mousePositionEquipableUI.RemoveItem();
+
+                }
             }
-            PlayerInventoryManager.Instance.RemoveItem(_itemUiHolder);
-            _itemUiHolder.RemoveItem();
+
 
         }
+       
     }
     private void EquipItem()
     {

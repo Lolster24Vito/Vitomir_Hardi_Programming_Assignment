@@ -65,6 +65,16 @@ public class PlayerInventoryManager : MonoBehaviour
         droppedItem.GetComponent<ItemWorld>().SetAmount(itemUiHolder.GetAmount());
         _items.Remove(item);
     }
+    public void DropItem(Item item,int amount)
+    {
+        Vector3 currentPosition = transform.position;
+        Vector3 dropPosition = new Vector3(currentPosition.x + _droppedItemOffset.x, currentPosition.y + _droppedItemOffset.y, currentPosition.z);
+        GameObject droppedItem = Instantiate(_droppedItemPrefab, dropPosition, Quaternion.identity);
+        droppedItem.GetComponent<ItemWorld>().SetItem(item);
+        droppedItem.GetComponent<ItemWorld>().SetAmount(1);
+        _items.Remove(item);
+    }
+
     public void RemoveItem(ItemUiHolder itemUiHolder)
     {
         _items.Remove(itemUiHolder.GetItem());

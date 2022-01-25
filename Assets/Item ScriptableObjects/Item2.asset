@@ -16,4 +16,5 @@ MonoBehaviour:
   Name: Item2
   Description: Item2Item2Item2
   Icon: {fileID: 21300000, guid: 61a051228fc8b3748b2bdffac645716b, type: 3}
-  MaxStack: 1
+  MaxStack: 3
+  InfiniteStack: 0

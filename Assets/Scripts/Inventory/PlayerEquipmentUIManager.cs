@@ -26,4 +26,16 @@ public class PlayerEquipmentUIManager : MonoBehaviour
             }
         }
     }
+    public void RemoveItem(EnumEquipmentType enumEquipmentType)
+    {
+        for (int i = 0; i < _equipmentSlots.Length; i++)
+        {
+
+            if (enumEquipmentType == _equipmentSlots[i].EquipmentType)
+            {
+                _equipmentSlots[i].RemoveItem();
+                return;
+            }
+        }
+    }
 }

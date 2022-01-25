@@ -104,6 +104,7 @@ public class PlayerEquipmentManager : MonoBehaviour
         }
 
         OnItemUnequipped?.Invoke();
+       // _playerEquipmentUIManager.RemoveItem(enumEquipmentType);
 
     }
 }

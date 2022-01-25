@@ -16,5 +16,5 @@ MonoBehaviour:
   Name: Item3
   Description: Can stack
   Icon: {fileID: 21300000, guid: 765d7fdb305736a4d8ec75cda80e1c6c, type: 3}
-  MaxStack: 3
+  MaxStack: 4
   InfiniteStack: 1

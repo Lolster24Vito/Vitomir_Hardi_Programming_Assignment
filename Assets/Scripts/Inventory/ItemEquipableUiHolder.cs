@@ -28,5 +28,9 @@ public class ItemEquipableUiHolder : MonoBehaviour
     {
         return (Item)_item;
     }
+    public ItemEquipable GetItemEquipable()
+    {
+        return _item;
+    }
 
 }

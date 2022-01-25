@@ -94,5 +94,10 @@ public class ItemUiHolder : MonoBehaviour
     {
         return _amount;
     }
-   
+    public void ReduceAmount()
+    {
+        _amount-=1;
+        updateText();
+    }
+
 }
