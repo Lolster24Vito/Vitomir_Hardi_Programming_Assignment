@@ -60,6 +60,18 @@ public class ItemDragHandler : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
             }
         }
+        if (eventData.button == PointerEventData.InputButton.Right || eventData.button == PointerEventData.InputButton.Middle)
+        {
+            
+
+            if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<ItemUiHolder>(out ItemUiHolder mousePositionItemUiHolder))
+            {
+                mousePositionItemUiHolder.GetItem().Use();
+            }
+            PlayerInventoryManager.Instance.RemoveItem(_itemUiHolder);
+            _itemUiHolder.RemoveItem();
+
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
