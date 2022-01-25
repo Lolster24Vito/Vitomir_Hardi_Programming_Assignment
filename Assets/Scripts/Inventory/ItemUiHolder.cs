@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class ItemUiHolder : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class ItemUiHolder : MonoBehaviour
      private Item _item = null;
      private Image _imageIcon;
     private int _amount = 0;
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private Text _text;
 
     private void Start()
     {
