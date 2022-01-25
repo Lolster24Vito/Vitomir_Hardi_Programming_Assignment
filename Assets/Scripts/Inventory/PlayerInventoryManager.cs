@@ -39,10 +39,12 @@ public class PlayerInventoryManager : MonoBehaviour
                     Destroy(collision.gameObject);
                     return;
                 }
+                if (_items.Count <= MAX_ITEMS) { 
                 AddItem(itemWorld.GetItem(),itemWorld.GetAmount());
 
                 //_inventoryUI.AddItem(itemHolder.GetItem());
                 Destroy(collision.gameObject);
+                }
             }
         }
     }
