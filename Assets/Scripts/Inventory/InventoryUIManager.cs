@@ -15,17 +15,19 @@ public class InventoryUIManager : MonoBehaviour
     {
         PlayerInventoryManager.OnItemAdded += AddItem;
     }
-    private void Start()
+    private IEnumerator Start()
     {
         _itemSlots = _itemsParent.GetComponentsInChildren<ItemUiHolder>();
+        yield return new WaitForEndOfFrame();
+        gameObject.SetActive(false);
     }
-    public void AddItem(ItemWorld item)
+    public void AddItem(Item item,int amount)
     {
         for (int i = 0; i < _itemSlots.Length; i++)
         {
             if (!_itemSlots[i].HasItem())
             {
-                _itemSlots[i].SetItem(item.GetItem(),item.GetAmount());
+                _itemSlots[i].SetItem(item,amount);
                 return;
             }
         }

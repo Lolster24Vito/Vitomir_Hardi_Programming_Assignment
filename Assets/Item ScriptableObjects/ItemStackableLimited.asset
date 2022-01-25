@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8c5353a74cd8644b91cc5d9cae4e5d1, type: 3}
-  m_Name: ItemStackable
+  m_Name: ItemStackableLimited
   m_EditorClassIdentifier: 
-  ID: 3
-  Name: Item3
-  Description: Can stack
-  Icon: {fileID: 21300000, guid: 765d7fdb305736a4d8ec75cda80e1c6c, type: 3}
+  ID: 10
+  Name: Shovel
+  Description: ShovelShovelShovelShovel
+  Icon: {fileID: 21300000, guid: 8597e479c9111d146b4aff20fa1668b4, type: 3}
   MaxStack: 3
-  InfiniteStack: 1
+  InfiniteStack: 0

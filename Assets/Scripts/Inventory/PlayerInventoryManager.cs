@@ -11,7 +11,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     const int MAX_ITEMS  = 32;
     private int _currentAmountOfItems;
-    public static event Action<ItemWorld> OnItemAdded;
+    public static event Action<Item,int> OnItemAdded;
     private List<Item> _items = new List<Item>();
     [SerializeField]private GameObject _droppedItemPrefab;
     [SerializeField]private Vector2 _droppedItemOffset;
@@ -39,21 +39,23 @@ public class PlayerInventoryManager : MonoBehaviour
                     Destroy(collision.gameObject);
                     return;
                 }
-                AddItem(itemWorld.GetItem());
-                OnItemAdded?.Invoke(itemWorld);
+                AddItem(itemWorld.GetItem(),itemWorld.GetAmount());
+
                 //_inventoryUI.AddItem(itemHolder.GetItem());
                 Destroy(collision.gameObject);
             }
         }
     }
-    void AddItem(Item item)
+    public void AddItem(Item item,int amount)
     {
-        if (_items.Count > MAX_ITEMS)
+
+        if (_items.Count < MAX_ITEMS)
         {
         _items.Add(item);
+         OnItemAdded?.Invoke(item,amount);
         }
     }
-    public void RemoveItem(ItemUiHolder itemUiHolder)
+    public void DropItem(ItemUiHolder itemUiHolder)
     {
         Item item = itemUiHolder.GetItem();
         Vector3 currentPosition = transform.position;
@@ -62,8 +64,11 @@ public class PlayerInventoryManager : MonoBehaviour
         droppedItem.GetComponent<ItemWorld>().SetItem(item);
         droppedItem.GetComponent<ItemWorld>().SetAmount(itemUiHolder.GetAmount());
         _items.Remove(item);
-
     }
-    
+    public void RemoveItem(ItemUiHolder itemUiHolder)
+    {
+        _items.Remove(itemUiHolder.GetItem());
+    }
+
 }
 

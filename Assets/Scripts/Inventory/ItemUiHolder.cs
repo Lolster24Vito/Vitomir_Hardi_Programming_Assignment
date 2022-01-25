@@ -17,7 +17,7 @@ public class ItemUiHolder : MonoBehaviour
         _text.text = "";
         _imageIcon = GetComponent<Image>();
     }
-    public void SetItem(Item item,int amount)
+    public void  SetItem(Item item,int amount)
     {
         _amount = amount;
         _item = item;
@@ -30,7 +30,7 @@ public class ItemUiHolder : MonoBehaviour
     {
         Item itemFromParameter=itemHolder.GetItem();
 
-        if (itemFromParameter != null&&_item!=null&& GetItem().Equals(itemFromParameter)&&_amount+itemHolder._amount<=GetItem().MaxStack)
+        if (itemFromParameter != null&&_item!=null&& GetItem().Equals(itemFromParameter)&&(_amount+itemHolder._amount<=GetItem().MaxStack||_item.InfiniteStack))
         {
             _amount += itemHolder._amount;
             updateText();
@@ -44,10 +44,26 @@ public class ItemUiHolder : MonoBehaviour
             itemHolder.SetItem(GetItem(), thisAmount);
             SetItem(itemFromParameter, parameterAmount);
         }
-
- 
-        
     }
+    public void SwapItems(ref ItemEquipableUiHolder itemEquipableHolder)
+    {
+        Item itemFromParameter = itemEquipableHolder.GetItem();
+
+        Item thisItem = GetItem();
+        int thisItemAmount = GetAmount();
+        bool hasItem = HasItem();
+        //if empty_just simply put it there
+        //if has something then remove item and put it into the inventory again
+        RemoveItem();
+        SetItem(itemFromParameter, 1);   
+        itemEquipableHolder.RemoveItem();
+        if (hasItem)
+        {
+            PlayerInventoryManager.Instance.AddItem(thisItem, GetAmount());
+        }
+
+    }
+
     public Item GetItem()
     {
         return _item;

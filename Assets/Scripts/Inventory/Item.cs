@@ -9,6 +9,7 @@ public class Item :ScriptableObject,IEqualityComparer<Item>
     public string Description;
     public Sprite Icon;
     public int MaxStack;
+    public bool InfiniteStack;
 
     public virtual void Use()
     {
