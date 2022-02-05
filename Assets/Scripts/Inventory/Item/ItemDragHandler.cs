@@ -74,7 +74,6 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                 {
                     if(_itemInAirEventArgs._itemUIHolder!=null&& _itemInAirEventArgs._itemUIHolder.GetItem()!=null&&
                         _itemEquipableUiHolder.IsValid(_itemInAirEventArgs._itemUIHolder.GetItem().GetEquipmentType()))
-                        //_itemInAirEventArgs._itemUIHolder.GetItem().GetEquipmentType() == _itemEquipableUiHolder.EquipmentType)
                     {
                         PlayerEquipmentManager.Instance.ItemSlotToChange=_itemEquipableUiHolder.EquipmentTypeSlot;
                             _itemInAirEventArgs._itemUIHolder.GetItem().Use();
