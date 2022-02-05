@@ -11,6 +11,8 @@ public class Item :ScriptableObject,IEqualityComparer<Item>
     public int MaxStack;
     public bool InfiniteStack;
 
+    protected EnumEquipmentType _equipmentType=EnumEquipmentType.None;
+
     public virtual void Use()
     {
 
@@ -25,5 +27,15 @@ public class Item :ScriptableObject,IEqualityComparer<Item>
         return obj.ID.GetHashCode();
     }
 
+    public virtual EnumEquipmentType GetEquipmentType()
+    {
+        return _equipmentType;
+    }
+    public override string ToString()
+    {
+        char breakLine = '\n';
+        string text = Name + breakLine+ Description+breakLine;
+        return text;
+    }
 
 }

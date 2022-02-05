@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum EnumEquipmentType
 {
-    Head,Torso,Weapon,Shield
+    None,Head,Torso,Weapon,Shield,Boots,Ring
 }

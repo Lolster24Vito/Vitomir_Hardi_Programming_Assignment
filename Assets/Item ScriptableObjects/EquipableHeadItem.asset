@@ -19,8 +19,9 @@ MonoBehaviour:
   MaxStack: 1
   InfiniteStack: 0
   Attributes:
-    Strength: 1
-    Dexterity: 11
-    Agility: 2
-    Inteligence: 1
-  EquipmentType: 0
+    itemAttributes:
+    - Value: 2
+    - Value: 1
+    - Value: 2
+    - Value: 1
+  EquipmentType: 1

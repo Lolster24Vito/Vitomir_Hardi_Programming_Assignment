@@ -12,7 +12,7 @@ public class ItemUiHolder : MonoBehaviour
     private int _amount = 0;
     [SerializeField] private Text _text;
 
-    private void Start()
+    private void Awake()
     {
         _text.text = "";
         _imageIcon = GetComponent<Image>();
@@ -74,6 +74,7 @@ public class ItemUiHolder : MonoBehaviour
     }
     public void RemoveItem()
     {
+
         _imageIcon.sprite = null;
         _item = null;
         _amount = 0;

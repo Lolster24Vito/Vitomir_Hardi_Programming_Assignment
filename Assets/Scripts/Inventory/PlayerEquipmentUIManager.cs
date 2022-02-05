@@ -6,32 +6,43 @@ public class PlayerEquipmentUIManager : MonoBehaviour
 {
     [SerializeField] private ItemEquipableUiHolder[] _equipmentSlots;
 
-    private IEnumerator Start()
+    private WindowPopUp windowPopUp;
+    private void Start()
     {
-        _equipmentSlots =GetComponentsInChildren<ItemEquipableUiHolder>();
+        _equipmentSlots = GetComponentsInChildren<ItemEquipableUiHolder>(true);
         PlayerEquipmentManager.OnItemEquipped += SetItem;
-        yield return new WaitForEndOfFrame();
-        gameObject.SetActive(false);
+        windowPopUp = GetComponent<WindowPopUp>();
+        windowPopUp.onScreenHide += WindowPopUp_onScreenHide;
+
     }
-    public void SetItem(ItemEquipable itemEquipable)
+
+    private void WindowPopUp_onScreenHide()
+    {
+        for(int i = 0; i < _equipmentSlots.Length; i++)
+        {
+            _equipmentSlots[i].DisableInAir();
+        }
+    }
+
+    public void SetItem(ItemEquipable itemEquipable,EnumEquipmentSlot enumEquipmentSlot)
     {
        
         for(int i=0;i< _equipmentSlots.Length; i++)
         {
 
-            if (itemEquipable.EquipmentType == _equipmentSlots[i].EquipmentType)
+            if (enumEquipmentSlot == _equipmentSlots[i].EquipmentTypeSlot)
             {
                 _equipmentSlots[i].SetItem(itemEquipable);
                 return;
             }
         }
     }
-    public void RemoveItem(EnumEquipmentType enumEquipmentType)
+    public void RemoveItem(EnumEquipmentSlot enumEquipmentType)
     {
         for (int i = 0; i < _equipmentSlots.Length; i++)
         {
 
-            if (enumEquipmentType == _equipmentSlots[i].EquipmentType)
+            if (enumEquipmentType == _equipmentSlots[i].EquipmentTypeSlot)
             {
                 _equipmentSlots[i].RemoveItem();
                 return;
@@ -39,3 +50,6 @@ public class PlayerEquipmentUIManager : MonoBehaviour
         }
     }
 }
+
+//napravit zasebnu klasu koja sadrži 
+//EnumEquipable i list<> EnumEquipableSlot koji ga podržava sve static 

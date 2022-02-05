@@ -8,15 +8,22 @@ public class ItemEquipable : Item
 
     [SerializeField]public ItemAttributes Attributes;
     [SerializeField]public EnumEquipmentType EquipmentType;
+    
 
-    /*
-    create ui 
-
-    ATTR STRENGTH;DEXTERITY.....
-
-     */
+    
     public override void Use()
     {
         PlayerEquipmentManager.Instance.Equip(this);
     }
+    public override EnumEquipmentType GetEquipmentType()
+    {
+        return EquipmentType;
+    }
+    public override string ToString()
+    {
+        char breakLine = '\n';
+        string text= base.ToString()+"Equipable"+breakLine+"Equipment Type:"+EquipmentType+breakLine+Attributes.ToString();
+        return text;
+    }
+
 }

@@ -9,71 +9,56 @@ public class PlayerAttributeManager : MonoBehaviour
     private PlayerEquipmentManager _equipmentManager;
     public ItemAttributes CharecterAttributes { get; set; }
 
-    [SerializeField] Text _agilityTextNumber;
-    [SerializeField] Text _dexterityTextNumber;
-    [SerializeField] Text _inteligenceTextNumber;
-    [SerializeField] Text _strengthTextNumber;
+    public static event Action<ItemAttributes> OnAttributesChanged;
+
+    /*
+        [SerializeField] Text _agilityTextNumber;
+        [SerializeField] Text _dexterityTextNumber;
+        [SerializeField] Text _inteligenceTextNumber;
+        [SerializeField] Text _strengthTextNumber;
+    */
     // Start is called before the first frame update
     void Start()
     {
         _equipmentManager = GetComponent<PlayerEquipmentManager>();
         PlayerEquipmentManager.OnItemUnequipped += UpdateValues;
         PlayerEquipmentManager.itemEquipped += UpdateValues;
+        UpdateValues();
     }
 
     private void UpdateValues()
     {
-        int agility=0;
-        int dexterity=0;
-        int inteligence=0;
-        int strength=0;
+        ItemAttributes attribute=new ItemAttributes();
+
         if (_equipmentManager.Head != null)
         {
-        ItemAttributes attributesHead = _equipmentManager.Head.Attributes;
-            agility += attributesHead.Agility;
-            dexterity += attributesHead.Dexterity;
-            inteligence += attributesHead.Inteligence;
-            strength += attributesHead.Strength;
+            attribute += _equipmentManager.Head.Attributes;
         }
         if (_equipmentManager.Torso != null)
         {
-        ItemAttributes attributesTorso = _equipmentManager.Torso.Attributes;
-            agility += attributesTorso.Agility;
-            dexterity += attributesTorso.Dexterity;
-            inteligence += attributesTorso.Inteligence;
-            strength += attributesTorso.Strength;
+            attribute += _equipmentManager.Torso.Attributes; 
+
         }
         if (_equipmentManager.Weapon != null)
         {
-        ItemAttributes attributesWeapon = _equipmentManager.Weapon.Attributes;
-            agility += attributesWeapon.Agility;
-            dexterity += attributesWeapon.Dexterity;
-            inteligence += attributesWeapon.Inteligence;
-            strength += attributesWeapon.Strength;
+            attribute += _equipmentManager.Weapon.Attributes;
+
         }
         if (_equipmentManager.Shield != null) {
-            ItemAttributes attributesShield = _equipmentManager.Shield.Attributes;
-            agility += attributesShield.Agility;
-            dexterity += attributesShield.Dexterity;
-            inteligence += attributesShield.Inteligence;
-            strength += attributesShield.Strength;
+            attribute += _equipmentManager.Shield.Attributes;
         }
-        CharecterAttributes = new ItemAttributes
+        if (_equipmentManager.LeftRing != null)
         {
-            Agility = agility,
-            Dexterity = dexterity,
-            Inteligence = inteligence,
-            Strength = strength,
-        };
-        UpdatePlayerAttributesUI(CharecterAttributes);
+            attribute += _equipmentManager.LeftRing.Attributes;
+        }
+        if (_equipmentManager.RightRing != null)
+        {
+            attribute += _equipmentManager.RightRing.Attributes;
+        }
+        CharecterAttributes = attribute;
+        OnAttributesChanged?.Invoke(attribute);
     }
-    public void UpdatePlayerAttributesUI(ItemAttributes itemAttributes)
-    {
-        _agilityTextNumber.text = itemAttributes.Agility.ToString();
-        _dexterityTextNumber.text = itemAttributes.Dexterity.ToString();
-        _inteligenceTextNumber.text = itemAttributes.Inteligence.ToString();
-        _strengthTextNumber.text = itemAttributes.Strength.ToString();
-    }
+
 
     // Update is called once per frame
 

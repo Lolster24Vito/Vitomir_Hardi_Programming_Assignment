@@ -9,12 +9,21 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public static PlayerInventoryManager Instance { get { return _instance; } }
 
+    private List<Item> _items = new List<Item>();
+
+    [SerializeField] private GameObject _droppedItemPrefab;
+    [SerializeField] private Vector2 _droppedItemOffset;
+    public static event Action<Item,int> OnItemAdded;
+    [System.Serializable]
+    enum PickUpType{Trigger, OverlapCircle, CircleCasting}
+    [SerializeField]private PickUpType pickUpType;
+    [SerializeField]private float _overlapCastingRadius=3f;
     const int MAX_ITEMS  = 32;
     private int _currentAmountOfItems;
-    public static event Action<Item,int> OnItemAdded;
-    private List<Item> _items = new List<Item>();
-    [SerializeField]private GameObject _droppedItemPrefab;
-    [SerializeField]private Vector2 _droppedItemOffset;
+    bool inputPressed;
+
+
+
 
     private void Awake()
     {
@@ -27,23 +36,61 @@ public class PlayerInventoryManager : MonoBehaviour
             _instance = this;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.F))
+        {
+            inputPressed = true;
+            if (pickUpType == PickUpType.OverlapCircle)
+            {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _overlapCastingRadius);
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    PickUpItem(colliders[i]);
+                }
+            }
+            if (pickUpType == PickUpType.CircleCasting)
+            {
+                RaycastHit2D[] raycastHits = Physics2D.CircleCastAll(transform.position, _overlapCastingRadius, Vector2.up, 2f);
+                for (int i = 0; i < raycastHits.Length; i++)
+                {
+
+                    PickUpItem(raycastHits[i].collider);
+                }
+            }
+
+        }
+        else
+        {
+            inputPressed = false;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (pickUpType==PickUpType.Trigger&& inputPressed)
+        {
+            PickUpItem(collision);
+        }
+    }
+    private void PickUpItem(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
         {
             if (collision.TryGetComponent<ItemWorld>(out ItemWorld itemWorld))
             {
-                if(itemWorld.GetItem() is ItemPermanentUse)
+                if (itemWorld.GetItem() is ItemPermanentUse)
                 {
                     itemWorld.GetItem().Use();
                     Destroy(collision.gameObject);
                     return;
                 }
-                if (_items.Count <= MAX_ITEMS) { 
-                AddItem(itemWorld.GetItem(),itemWorld.GetAmount());
+                if (_items.Count <= MAX_ITEMS)
+                {
+                    AddItem(itemWorld.GetItem(), itemWorld.GetAmount());
 
-                //_inventoryUI.AddItem(itemHolder.GetItem());
-                Destroy(collision.gameObject);
+                    //_inventoryUI.AddItem(itemHolder.GetItem());
+                    Destroy(collision.gameObject);
                 }
             }
         }
@@ -82,5 +129,12 @@ public class PlayerInventoryManager : MonoBehaviour
         _items.Remove(itemUiHolder.GetItem());
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1f, 1f, 1f, 0.3f);
+        Gizmos.DrawSphere(transform.position, _overlapCastingRadius);
+    }
+
 }
+
 

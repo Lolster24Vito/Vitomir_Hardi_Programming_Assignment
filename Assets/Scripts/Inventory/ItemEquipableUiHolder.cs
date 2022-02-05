@@ -1,17 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemEquipableUiHolder : MonoBehaviour
 {
-    [SerializeField] private EnumEquipmentType _equipmentType;
-    public EnumEquipmentType EquipmentType { get => _equipmentType; }
+    //ovo zamijeniti s drugim enumom koja oznacava equipmentSlot
+
+
+    [SerializeField] private EnumEquipmentSlot _equipmentTypeSlot;
+    public EnumEquipmentSlot EquipmentTypeSlot { get => _equipmentTypeSlot; }
     [SerializeField] private ItemEquipable _item;
+    private ItemDragHandler _itemDragHandler;
     Image _image;
-    private void Start()
+    private void Awake()
     {
         _image = GetComponent<Image>();
+        _itemDragHandler = GetComponent<ItemDragHandler>();
     }
     public void SetItem(ItemEquipable item)
     {
@@ -20,7 +26,7 @@ public class ItemEquipableUiHolder : MonoBehaviour
     }
     public void RemoveItem()
     {
-        PlayerEquipmentManager.Instance.RemoveItem(EquipmentType);
+        PlayerEquipmentManager.Instance.RemoveItem(_equipmentTypeSlot);
         _item = null;
         _image.sprite = null;
     }
@@ -32,5 +38,29 @@ public class ItemEquipableUiHolder : MonoBehaviour
     {
         return _item;
     }
+    public bool HasItem()
+    {
+        return _item != null;
+    }
+    public void DisableInAir()
+    {
+        if(_itemDragHandler!=null)
+        {
+            _itemDragHandler.DisableInAir();
+        }
+    }
 
+    internal bool IsValid(EnumEquipmentType enumEquipmentType)
+    {
+        if (EquipmentTypeSlot.ToString() == enumEquipmentType.ToString())
+        {
+            return true;
+        }
+        if (enumEquipmentType == EnumEquipmentType.Ring&&
+            (EquipmentTypeSlot == EnumEquipmentSlot.LeftRing || EquipmentTypeSlot == EnumEquipmentSlot.RightRing))
+        {
+            return true;
+        }
+        return false;
+    }
 }
