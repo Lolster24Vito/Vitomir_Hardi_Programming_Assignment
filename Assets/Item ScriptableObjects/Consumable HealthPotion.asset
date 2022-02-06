@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 189d1a60909a4794ebc22c4c4ac78e19, type: 3}
-  m_Name: Health potion
+  m_Name: Consumable HealthPotion
   m_EditorClassIdentifier: 
   ID: 5
   Name: Health potion
@@ -18,4 +18,18 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 2c039320c5f6c6d4e97cdefcd8f51363, type: 3}
   MaxStack: 12
   InfiniteStack: 0
-  _healthRegeneration: 20
+  SpendableAttributes:
+    SpendableAttributesArray:
+    - Value: 10
+    - Value: -2
+  CharacterAttributes:
+    itemAttributes:
+    - Value: 5
+    - Value: 0
+    - Value: 0
+    - Value: 2
+    - Value: 0
+  ConsumeEndTimeSeconds: 6
+  RampValueMaxSeconds: 2
+  TickTimeToAddNewAttributes: 1
+  EnumConsumeType: 0

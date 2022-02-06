@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189d1a60909a4794ebc22c4c4ac78e19, type: 3}
+  m_Name: Consumable potion of Attributes Ramp
+  m_EditorClassIdentifier: 
+  ID: 17
+  Name: Potion of all attributes by Ramp
+  Description: Increase all attributes
+  Icon: {fileID: 21300000, guid: 813b9755c19872247ab125ebe9a9357e, type: 3}
+  MaxStack: 99
+  InfiniteStack: 0
+  SpendableAttributes:
+    SpendableAttributesArray:
+    - Value: 0
+    - Value: 0
+  CharacterAttributes:
+    itemAttributes:
+    - Value: 21
+    - Value: 10
+    - Value: 5
+    - Value: 8
+    - Value: 12
+  ConsumeEndTimeSeconds: 5
+  RampValueMaxSeconds: 2
+  TickTimeToAddNewAttributes: 0
+  EnumConsumeType: 1

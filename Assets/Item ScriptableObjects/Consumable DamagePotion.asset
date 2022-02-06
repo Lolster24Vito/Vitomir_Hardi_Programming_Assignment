@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189d1a60909a4794ebc22c4c4ac78e19, type: 3}
+  m_Name: Consumable DamagePotion
+  m_EditorClassIdentifier: 
+  ID: 16
+  Name: Damage Potion Tick
+  Description: Damages you for 10
+  Icon: {fileID: 21300000, guid: 478f294d4fa218647858b0c7897026bf, type: 3}
+  MaxStack: 99
+  InfiniteStack: 0
+  SpendableAttributes:
+    SpendableAttributesArray:
+    - Value: -10
+    - Value: 0
+  CharacterAttributes:
+    itemAttributes:
+    - Value: 0
+    - Value: 0
+    - Value: 0
+    - Value: 0
+    - Value: 0
+  ConsumeEndTimeSeconds: 6
+  RampValueMaxSeconds: 0
+  TickTimeToAddNewAttributes: 2
+  EnumConsumeType: 2

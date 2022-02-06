@@ -15,13 +15,14 @@ MonoBehaviour:
   ID: 12
   Name: Left Ring
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 4e61a57d9e4734a43829a5d705211667, type: 3}
   MaxStack: 0
   InfiniteStack: 0
   Attributes:
     itemAttributes:
-    - Value: 0
-    - Value: 0
-    - Value: 0
-    - Value: 0
-  EquipmentType: 0
+    - Value: 1
+    - Value: 2
+    - Value: 3
+    - Value: 1
+    - Value: 2
+  EquipmentType: 6

@@ -12,8 +12,9 @@ public class AttributeUIManager : MonoBehaviour
     {
         PlayerAttributeManager.OnAttributesChanged += UpdateUI;
     }
-    private void UpdateUI(ItemAttributes itemAttributes)
+    private void UpdateUI(ItemAttributes itemAttributes,SpendableAttributes spendableAttribute)
     {
-        text.text = itemAttributes.ToString();
+        text.text = spendableAttribute.ToString();
+        text.text += itemAttributes.ToString();
     }
 }

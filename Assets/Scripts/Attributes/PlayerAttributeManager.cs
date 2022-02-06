@@ -7,9 +7,13 @@ using UnityEngine.UI;
 public class PlayerAttributeManager : MonoBehaviour
 {
     private PlayerEquipmentManager _equipmentManager;
+
+    private SpendableAttributes _spendableAttributes = new SpendableAttributes();
+    public SpendableAttributes spendableAttributes { get => _spendableAttributes; set => _spendableAttributes = value; }
+
     public ItemAttributes CharecterAttributes { get; set; }
 
-    public static event Action<ItemAttributes> OnAttributesChanged;
+    public static event Action<ItemAttributes,SpendableAttributes> OnAttributesChanged;
 
     /*
         [SerializeField] Text _agilityTextNumber;
@@ -23,6 +27,7 @@ public class PlayerAttributeManager : MonoBehaviour
         _equipmentManager = GetComponent<PlayerEquipmentManager>();
         PlayerEquipmentManager.OnItemUnequipped += UpdateValues;
         PlayerEquipmentManager.itemEquipped += UpdateValues;
+        PlayerBuffManager.OnBuffChangeAttributes += UpdateValues;
         UpdateValues();
     }
 
@@ -55,8 +60,10 @@ public class PlayerAttributeManager : MonoBehaviour
         {
             attribute += _equipmentManager.RightRing.Attributes;
         }
+        attribute += PlayerBuffManager.Instance.PlayerBuffAttributes;
         CharecterAttributes = attribute;
-        OnAttributesChanged?.Invoke(attribute);
+
+        OnAttributesChanged?.Invoke(CharecterAttributes, spendableAttributes);
     }
 
 
