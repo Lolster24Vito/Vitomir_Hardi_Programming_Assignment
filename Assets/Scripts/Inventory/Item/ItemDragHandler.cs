@@ -49,13 +49,17 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                 _itemInAirEventArgs = new ItemInAirEventArgs(this, ref _itemUiHolder, ref _itemEquipableUiHolder);
                 _itemInAir = true;
                  firstClick = true;
+
+                    StackableItemsSplitUI.Instance.HideUI();
+                    
                 }
-                //pack things into the eventArgs
 
 
             }
             else
             {
+                
+
 
                 if (_itemUiHolder != null)
                 {
@@ -83,7 +87,9 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                     }
                     
                 }
-                
+
+
+
 
                 _itemInAirEventArgs.itemDragHandler.DisableInAir();
                 _itemInAirEventArgs = null;
@@ -93,34 +99,35 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
         if (eventData.button == PointerEventData.InputButton.Right || eventData.button == PointerEventData.InputButton.Middle)
         {
 
-            if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<ItemUiHolder>(out ItemUiHolder mousePositionItemUiHolder))
+            if (_itemUiHolder!=null)
             {
-                if (mousePositionItemUiHolder.GetItem() != null)
+                if (_itemUiHolder.GetItem() != null)
                 {
-                    _itemUiHolder.GetItem().Use();
-                    if (mousePositionItemUiHolder.GetItem() is ItemConsumables)
+                    this._itemUiHolder.GetItem().Use();
+                    if (_itemUiHolder.GetItem() is ItemConsumables)
                     {
-                        mousePositionItemUiHolder.ReduceAmount();
-                        if (mousePositionItemUiHolder.GetAmount() <= 0)
+                        _itemUiHolder.ReduceAmount();
+                        if (_itemUiHolder.GetAmount() <= 0)
                         {
-                            PlayerInventoryManager.Instance.RemoveItem(_itemUiHolder);
-                            _itemUiHolder.RemoveItem();
+                            PlayerInventoryManager.Instance.RemoveItem(this._itemUiHolder);
+                            this._itemUiHolder.RemoveItem();
                         }
                     }
-                    if (mousePositionItemUiHolder.GetItem() is ItemEquipable)
+                    if (_itemUiHolder.GetItem() is ItemEquipable)
                     {
-                        PlayerInventoryManager.Instance.RemoveItem(_itemUiHolder);
-                        _itemUiHolder.RemoveItem();
+                        PlayerInventoryManager.Instance.RemoveItem(this._itemUiHolder);
+                        this._itemUiHolder.RemoveItem();
                     }
 
                 }
             }
-            if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<ItemEquipableUiHolder>(out ItemEquipableUiHolder mousePositionEquipableUI))
+            
+            if ( _itemEquipableUiHolder!=null)
             {
-                if (mousePositionEquipableUI.GetItem() != null)
+                if (_itemEquipableUiHolder.GetItem() != null)
                 {
-                    PlayerInventoryManager.Instance.AddItem(mousePositionEquipableUI.GetItem(), 1);
-                    mousePositionEquipableUI.RemoveItem();
+                    PlayerInventoryManager.Instance.AddItem(_itemEquipableUiHolder.GetItem(), 1);
+                    _itemEquipableUiHolder.RemoveItem();
 
                 }
             }
@@ -211,7 +218,11 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                 {
                     if (!firstClick)
                     {
-
+                        if (_itemInAirEventArgs._itemUIHolder != null)
+                        {
+                            _itemInAirEventArgs._itemUIHolder.ShowSplitUI();
+                        }
+                        
 
                     PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
                     pointerEventData.position = Input.mousePosition;
