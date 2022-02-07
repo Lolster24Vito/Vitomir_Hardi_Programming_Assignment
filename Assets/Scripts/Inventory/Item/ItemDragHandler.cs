@@ -41,7 +41,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                 {
                 _originalParent = transform.parent;
                 _localPosition = transform.localPosition;
-                
+
                 _rectTransform.SetParent(transform.parent.parent.parent.parent);
                 _rectTransform.SetAsLastSibling();
                 _canvasGroup.blocksRaycasts = false;
@@ -49,13 +49,17 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                 _itemInAirEventArgs = new ItemInAirEventArgs(this, ref _itemUiHolder, ref _itemEquipableUiHolder);
                 _itemInAir = true;
                  firstClick = true;
+
+                    StackableItemsSplitUI.Instance.HideUI();
+
                 }
-                //pack things into the eventArgs
 
 
             }
             else
             {
+
+
 
                 if (_itemUiHolder != null)
                 {
@@ -79,11 +83,13 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                             _itemInAirEventArgs._itemUIHolder.GetItem().Use();
                              PlayerInventoryManager.Instance.RemoveItem(_itemInAirEventArgs._itemUIHolder);
                             _itemInAirEventArgs._itemUIHolder.RemoveItem();
-                        
+
                     }
-                    
+
                 }
-                
+
+
+
 
                 _itemInAirEventArgs.itemDragHandler.DisableInAir();
                 _itemInAirEventArgs = null;
@@ -92,7 +98,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
         }
         if (eventData.button == PointerEventData.InputButton.Right || eventData.button == PointerEventData.InputButton.Middle)
         {
-            
+
             if (_itemUiHolder!=null)
             {
                 if (_itemUiHolder.GetItem() != null)
@@ -115,7 +121,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
 
                 }
             }
-            
+
             if ( _itemEquipableUiHolder!=null)
             {
                 if (_itemEquipableUiHolder.GetItem() != null)
@@ -212,6 +218,10 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                 {
                     if (!firstClick)
                     {
+                        if (_itemInAirEventArgs._itemUIHolder != null)
+                        {
+                            _itemInAirEventArgs._itemUIHolder.ShowSplitUI();
+                        }
 
 
                     PointerEventData pointerEventData = new PointerEventData(EventSystem.current);

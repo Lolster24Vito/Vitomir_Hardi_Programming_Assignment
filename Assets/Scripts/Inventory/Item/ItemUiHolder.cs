@@ -100,5 +100,17 @@ public class ItemUiHolder : MonoBehaviour
         _amount-=1;
         updateText();
     }
+    public void SetAmount(int amount)
+    {
+        _amount = amount;
+        updateText();
+    }
+    public void ShowSplitUI()
+    {
+        if (_amount > 1)
+        {
+            StackableItemsSplitUI.Instance.ShowUI(this);
+        }
+    }
 
 }
