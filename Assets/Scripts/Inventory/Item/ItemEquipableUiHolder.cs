@@ -13,22 +13,28 @@ public class ItemEquipableUiHolder : MonoBehaviour
     public EnumEquipmentSlot EquipmentTypeSlot { get => _equipmentTypeSlot; }
     [SerializeField] private ItemEquipable _item;
     private ItemDragHandler _itemDragHandler;
+    public float Durability;
     Image _image;
     private void Awake()
     {
         _image = GetComponent<Image>();
         _itemDragHandler = GetComponent<ItemDragHandler>();
     }
-    public void SetItem(ItemEquipable item)
+    public void SetItem(ItemEquipable item,float durability)
     {
         _item = item;
         _image.sprite = item.Icon;
+        Durability = durability;
     }
     public void RemoveItem()
     {
         PlayerEquipmentManager.Instance.RemoveItem(_equipmentTypeSlot);
         _item = null;
         _image.sprite = null;
+    }
+    public void UpdateDurability()
+    {
+
     }
     public Item GetItem()
     {

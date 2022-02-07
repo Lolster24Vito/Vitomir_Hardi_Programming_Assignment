@@ -10,6 +10,7 @@ public class Item :ScriptableObject,IEqualityComparer<Item>
     public Sprite Icon;
     public int MaxStack;
     public bool InfiniteStack;
+    public float MaxDurability;
 
     protected EnumEquipmentType _equipmentType=EnumEquipmentType.None;
 

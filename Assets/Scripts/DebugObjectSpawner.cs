@@ -90,5 +90,6 @@ public class DebugObjectSpawner : MonoBehaviour
         GameObject droppedItem = Instantiate(_genericItem, dropPosition, Quaternion.identity);
         droppedItem.GetComponent<ItemWorld>().SetItem(item);
         droppedItem.GetComponent<ItemWorld>().SetAmount(1);
+        droppedItem.GetComponent<ItemWorld>().Durability = item.MaxDurability;
     }
 }

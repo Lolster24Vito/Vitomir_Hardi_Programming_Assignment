@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum EnumEquipmentSlot
 {
-    Head, Torso, Weapon, Shield, Boots, LeftRing,RightRing
+    Head,Torso,Weapon,Shield,Boots,LeftRing,RightRing
 }

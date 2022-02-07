@@ -13,7 +13,8 @@ public class PlayerEquipmentUIManager : MonoBehaviour
         PlayerEquipmentManager.OnItemEquipped += SetItem;
         windowPopUp = GetComponent<WindowPopUp>();
         windowPopUp.onScreenHide += WindowPopUp_onScreenHide;
-
+        PlayerEquipmentManager.OnItemDurabilityChange += UpdateDurability;
+        PlayerEquipmentManager.OnItemDestroyed += RemoveItem;
     }
 
     private void WindowPopUp_onScreenHide()
@@ -24,7 +25,7 @@ public class PlayerEquipmentUIManager : MonoBehaviour
         }
     }
 
-    public void SetItem(ItemEquipable itemEquipable,EnumEquipmentSlot enumEquipmentSlot)
+    public void SetItem(ItemEquipableIndividual itemEquipable,EnumEquipmentSlot enumEquipmentSlot)
     {
        
         for(int i=0;i< _equipmentSlots.Length; i++)
@@ -32,7 +33,7 @@ public class PlayerEquipmentUIManager : MonoBehaviour
 
             if (enumEquipmentSlot == _equipmentSlots[i].EquipmentTypeSlot)
             {
-                _equipmentSlots[i].SetItem(itemEquipable);
+                _equipmentSlots[i].SetItem(itemEquipable.Item, itemEquipable.CurrentDurability);
                 return;
             }
         }
@@ -49,7 +50,16 @@ public class PlayerEquipmentUIManager : MonoBehaviour
             }
         }
     }
-}
+    public void UpdateDurability(EnumEquipmentSlot slot,float amount)
+    {
+        for(int i = 0; i < _equipmentSlots.Length; i++)
+        {
+            if (slot == _equipmentSlots[i].EquipmentTypeSlot)
+            {
+                _equipmentSlots[i].Durability = amount;
+            }
+        }
+    }
+   
 
-//napravit zasebnu klasu koja sadrži 
-//EnumEquipable i list<> EnumEquipableSlot koji ga podržava sve static 
+}

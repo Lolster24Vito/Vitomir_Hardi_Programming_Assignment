@@ -103,6 +103,11 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
             {
                 if (_itemUiHolder.GetItem() != null)
                 {
+                    if (_itemUiHolder.GetItem() is ItemEquipable)
+                    {
+                        Debug.Log("Called");
+                         PlayerEquipmentManager.Instance.DurabilitySetHelper=_itemUiHolder.GetDurability();
+                    }
                     this._itemUiHolder.GetItem().Use();
                     if (_itemUiHolder.GetItem() is ItemConsumables)
                     {
@@ -126,7 +131,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
             {
                 if (_itemEquipableUiHolder.GetItem() != null)
                 {
-                    PlayerInventoryManager.Instance.AddItem(_itemEquipableUiHolder.GetItem(), 1);
+                    PlayerInventoryManager.Instance.AddItem(_itemEquipableUiHolder.GetItem(), 1,_itemEquipableUiHolder.Durability);
                     _itemEquipableUiHolder.RemoveItem();
 
                 }
@@ -161,16 +166,26 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
     private void ShowToolTip()
     {
         Item item=null;
+        float durability=0f;
         if (_itemUiHolder != null&&_itemUiHolder.GetItem()!=null)
         {
             item = _itemUiHolder.GetItem();
+            durability = _itemUiHolder.GetDurability();
         }
         if (_itemEquipableUiHolder != null&&_itemEquipableUiHolder.GetItem()!=null)
         {
             item = _itemEquipableUiHolder.GetItem();
+            durability = _itemEquipableUiHolder.Durability;
         }
+
+        if (item != null&&durability!=0)
+        {
+            ToolTipManager.Instance.ShowToolTip(item,durability);
+        }
+        else
         if (item != null)
         {
+
             ToolTipManager.Instance.ShowToolTip(item);
         }
     }
@@ -187,7 +202,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
         }
         if (_itemEquipableUiHolder != null)
         {
-            PlayerInventoryManager.Instance.DropItem(_itemEquipableUiHolder.GetItem(), 1);
+            PlayerInventoryManager.Instance.DropItem(_itemEquipableUiHolder);
             _itemEquipableUiHolder.RemoveItem();
         }
     }

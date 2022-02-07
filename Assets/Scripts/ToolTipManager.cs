@@ -24,10 +24,20 @@ public class ToolTipManager : MonoBehaviour
             _instance = this;
         }
     }
+    public void ShowToolTip(Item item,float durability)
+    {
+        Debug.Log("Called with durability");
+        _parentToHide.SetActive(true);
+        _text.text = item.ToString();
+        Debug.Log(item.ToString());
+        _text.text += "Durability:"+durability.ToString("0.0")+'\n';
+        _icon.sprite = item.Icon;
+        transform.position = Input.mousePosition;
+    }
     public void ShowToolTip(Item item)
     {
+        Debug.Log("Called without durability");
         _parentToHide.SetActive(true);
-
         _text.text = item.ToString();
         _icon.sprite = item.Icon;
         transform.position = Input.mousePosition;

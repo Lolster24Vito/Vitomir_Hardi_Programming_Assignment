@@ -8,13 +8,19 @@ public class ItemWorld : MonoBehaviour
     [SerializeField] private Item _item;
 
     [SerializeField] private int _amount;
+    [SerializeField] private float _durability;
+    public float Durability { get => _durability; set => _durability = Mathf.Clamp(value, 0, _item.MaxDurability); }
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        if(_item!=null)
+        if (_item != null)
+        {
         _spriteRenderer.sprite = _item.Icon;
+
+        Durability = _item.MaxDurability;
+        }
     }
     public Item GetItem()
     {
@@ -34,5 +40,6 @@ public class ItemWorld : MonoBehaviour
     {
         _amount = amount;
     }
+   
     
 }
