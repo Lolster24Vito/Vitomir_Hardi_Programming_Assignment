@@ -8,12 +8,12 @@ public class ItemEquipable : Item
 
     [SerializeField]public ItemAttributes Attributes;
     [SerializeField]public EnumEquipmentType EquipmentType;
-    
 
-    
+
+ 
     public override void Use()
     {
-        PlayerEquipmentManager.Instance.Equip(this);
+        PlayerEquipmentManager.Instance.Equip( this);
     }
     public override EnumEquipmentType GetEquipmentType()
     {
@@ -25,5 +25,10 @@ public class ItemEquipable : Item
         string text= base.ToString()+"Equipable"+breakLine+"Equipment Type:"+EquipmentType+breakLine+Attributes.ToString();
         return text;
     }
+    public void DecreseItemDurability()
+    {
+
+    }
+   
 
 }

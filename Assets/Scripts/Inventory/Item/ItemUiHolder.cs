@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 public class ItemUiHolder : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ItemUiHolder : MonoBehaviour
      private Item _item = null;
      private Image _imageIcon;
     private int _amount = 0;
+    private float _durability;
     [SerializeField] private Text _text;
 
     private void Awake()
@@ -17,8 +19,9 @@ public class ItemUiHolder : MonoBehaviour
         _text.text = "";
         _imageIcon = GetComponent<Image>();
     }
-    public void  SetItem(Item item,int amount)
+    public void  SetItem(Item item,int amount,float durability)
     {
+        _durability = durability;
         _amount = amount;
         _item = item;
         updateText();
@@ -39,10 +42,8 @@ public class ItemUiHolder : MonoBehaviour
         }
         else
         {
-            int thisAmount = _amount;
-            int parameterAmount = itemHolder._amount;
-            itemHolder.SetItem(GetItem(), thisAmount);
-            SetItem(itemFromParameter, parameterAmount);
+            itemHolder.SetItem(GetItem(), _amount,_durability);
+            SetItem(itemFromParameter, itemHolder._amount,itemHolder._durability);
         }
     }
     public void SwapItems(ref ItemEquipableUiHolder itemEquipableHolder)
@@ -55,11 +56,12 @@ public class ItemUiHolder : MonoBehaviour
         //if empty_just simply put it there
         //if has something then remove item and put it into the inventory again
         RemoveItem();
-        SetItem(itemFromParameter, 1);   
+        SetItem(itemFromParameter, 1, itemEquipableHolder.Durability);   
         itemEquipableHolder.RemoveItem();
         if (hasItem)
         {
-            PlayerInventoryManager.Instance.AddItem(thisItem, GetAmount());
+
+            PlayerInventoryManager.Instance.AddItem(thisItem, GetAmount(),GetDurability());
         }
 
     }
@@ -101,4 +103,8 @@ public class ItemUiHolder : MonoBehaviour
         updateText();
     }
 
+    internal float GetDurability()
+    {
+        return _durability;
+    }
 }

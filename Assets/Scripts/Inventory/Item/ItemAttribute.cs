@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class ItemAttribute : System.IEquatable<ItemAttribute>
 {
-    private string _name;
+    private readonly string _name;
     public string Name { get => _name; }
     public int Value;
 
@@ -21,6 +21,6 @@ public class ItemAttribute : System.IEquatable<ItemAttribute>
     }
     public override string ToString()
     {
-        return Name + ": " + Value;
+        return _name + ": " + Value;
     }
 }

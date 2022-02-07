@@ -13,7 +13,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     [SerializeField] private GameObject _droppedItemPrefab;
     [SerializeField] private Vector2 _droppedItemOffset;
-    public static event Action<Item,int> OnItemAdded;
+    public static event Action<Item,int,float> OnItemAdded;
     [System.Serializable]
     enum PickUpType{Trigger, OverlapCircle, CircleCasting}
     [SerializeField]private PickUpType pickUpType;
@@ -87,7 +87,7 @@ public class PlayerInventoryManager : MonoBehaviour
                 }
                 if (_items.Count <= MAX_ITEMS)
                 {
-                    AddItem(itemWorld.GetItem(), itemWorld.GetAmount());
+                    AddItem(itemWorld.GetItem(), itemWorld.GetAmount(),itemWorld.Durability);
 
                     //_inventoryUI.AddItem(itemHolder.GetItem());
                     Destroy(collision.gameObject);
@@ -95,13 +95,13 @@ public class PlayerInventoryManager : MonoBehaviour
             }
         }
     }
-    public void AddItem(Item item,int amount)
+    public void AddItem(Item item,int amount,float durability)
     {
 
         if (_items.Count < MAX_ITEMS)
         {
         _items.Add(item);
-         OnItemAdded?.Invoke(item,amount);
+         OnItemAdded?.Invoke(item,amount, durability);
         }
     }
     public void DropItem(ItemUiHolder itemUiHolder)
@@ -110,17 +110,23 @@ public class PlayerInventoryManager : MonoBehaviour
         Vector3 currentPosition = transform.position;
         Vector3 dropPosition = new Vector3(currentPosition.x + _droppedItemOffset.x, currentPosition.y + _droppedItemOffset.y, currentPosition.z);
         GameObject droppedItem=Instantiate(_droppedItemPrefab, dropPosition,Quaternion.identity);
-        droppedItem.GetComponent<ItemWorld>().SetItem(item);
-        droppedItem.GetComponent<ItemWorld>().SetAmount(itemUiHolder.GetAmount());
+        ItemWorld droppedItemWorld = droppedItem.GetComponent<ItemWorld>();
+        droppedItemWorld.SetItem(item);
+        droppedItemWorld.SetAmount(itemUiHolder.GetAmount());
+        droppedItemWorld.Durability=itemUiHolder.GetDurability();
         _items.Remove(item);
     }
-    public void DropItem(Item item,int amount)
+    public void DropItem(ItemEquipableUiHolder itemEquipableUi)
     {
+
+        Item item = itemEquipableUi.GetItem();
         Vector3 currentPosition = transform.position;
         Vector3 dropPosition = new Vector3(currentPosition.x + _droppedItemOffset.x, currentPosition.y + _droppedItemOffset.y, currentPosition.z);
         GameObject droppedItem = Instantiate(_droppedItemPrefab, dropPosition, Quaternion.identity);
-        droppedItem.GetComponent<ItemWorld>().SetItem(item);
-        droppedItem.GetComponent<ItemWorld>().SetAmount(1);
+        ItemWorld droppedItemWorld = droppedItem.GetComponent<ItemWorld>();
+        droppedItemWorld.SetItem(item);
+        droppedItemWorld.SetAmount(1);
+        droppedItemWorld.Durability=itemEquipableUi.Durability;
         _items.Remove(item);
     }
 

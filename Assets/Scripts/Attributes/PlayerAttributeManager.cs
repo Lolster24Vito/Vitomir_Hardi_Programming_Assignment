@@ -30,31 +30,40 @@ public class PlayerAttributeManager : MonoBehaviour
     {
         ItemAttributes attribute=new ItemAttributes();
 
+        for(int i = 0; i < _equipmentManager.EquipmentSlots.Length;i++)
+        {
+            if (_equipmentManager.EquipmentSlots[i].Item != null)
+            {
+                attribute += _equipmentManager.EquipmentSlots[i].Item.Item.Attributes;
+            }
+        }
+        /*
         if (_equipmentManager.Head != null)
         {
-            attribute += _equipmentManager.Head.Attributes;
+            attribute += _equipmentManager.Head.Item.Attributes;
         }
         if (_equipmentManager.Torso != null)
         {
-            attribute += _equipmentManager.Torso.Attributes; 
+            attribute += _equipmentManager.Torso.Item.Attributes; 
 
         }
         if (_equipmentManager.Weapon != null)
         {
-            attribute += _equipmentManager.Weapon.Attributes;
+            attribute += _equipmentManager.Weapon.Item.Attributes;
 
         }
         if (_equipmentManager.Shield != null) {
-            attribute += _equipmentManager.Shield.Attributes;
+            attribute += _equipmentManager.Shield.Item.Attributes;
         }
         if (_equipmentManager.LeftRing != null)
         {
-            attribute += _equipmentManager.LeftRing.Attributes;
+            attribute += _equipmentManager.LeftRing.Item.Attributes;
         }
         if (_equipmentManager.RightRing != null)
         {
-            attribute += _equipmentManager.RightRing.Attributes;
+            attribute += _equipmentManager.RightRing.Item.Attributes;
         }
+        */
         CharecterAttributes = attribute;
         OnAttributesChanged?.Invoke(attribute);
     }

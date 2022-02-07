@@ -20,13 +20,13 @@ public class InventoryUIManager : MonoBehaviour
         _itemSlots = _itemsParent.GetComponentsInChildren<ItemUiHolder>(true);
 
     }
-    public void AddItem(Item item,int amount)
+    public void AddItem(Item item,int amount,float durability)
     {
         for (int i = 0; i < _itemSlots.Length; i++)
         {
             if (!_itemSlots[i].HasItem())
             {
-                _itemSlots[i].SetItem(item,amount);
+                _itemSlots[i].SetItem(item,amount, durability);
                 return;
             }
         }
