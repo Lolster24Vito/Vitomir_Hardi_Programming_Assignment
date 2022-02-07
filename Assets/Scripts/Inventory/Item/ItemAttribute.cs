@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class ItemAttribute : System.IEquatable<ItemAttribute>
 {
-    private string _name;
+    private  string _name;
     public string Name { get => _name; }
     public int Value;
 
