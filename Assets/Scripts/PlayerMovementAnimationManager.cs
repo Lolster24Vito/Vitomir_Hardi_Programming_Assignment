@@ -16,7 +16,7 @@ public class PlayerMovementAnimationManager : MonoBehaviour
     // Update is called once per frame
    public void Move(Vector2 input)
     {
-        if (input == Vector2.zero)
+        if (input == new Vector2(0.00f,0.00f))
         {
             _walking = false;
             _animator.SetBool("Walking", _walking);

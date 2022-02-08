@@ -8,7 +8,6 @@ public class InventoryUIManager : MonoBehaviour
 
     private ItemUiHolder[] _itemSlots;
 
-    private ItemUiHolder _hoveredItem;
 
 
     private void Awake()
@@ -33,10 +32,5 @@ public class InventoryUIManager : MonoBehaviour
     }
 
    
- 
-    public void setHoveredItem(ItemUiHolder itemUiHolder)
-    {
-        _hoveredItem = itemUiHolder;
-    }
 }
 
