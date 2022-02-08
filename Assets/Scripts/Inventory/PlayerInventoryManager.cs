@@ -65,6 +65,28 @@ public class PlayerInventoryManager : MonoBehaviour
             inputPressed = false;
         }
     }
+    public void ButtonEquip()
+    {
+        inputPressed = true;
+        if (pickUpType == PickUpType.OverlapCircle)
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _overlapCastingRadius);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                PickUpItem(colliders[i]);
+            }
+        }
+        if (pickUpType == PickUpType.CircleCasting)
+        {
+            RaycastHit2D[] raycastHits = Physics2D.CircleCastAll(transform.position, _overlapCastingRadius, Vector2.up, 2f);
+            for (int i = 0; i < raycastHits.Length; i++)
+            {
+
+                PickUpItem(raycastHits[i].collider);
+            }
+        }
+
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
 
