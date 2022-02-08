@@ -18,19 +18,18 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 813b9755c19872247ab125ebe9a9357e, type: 3}
   MaxStack: 99
   InfiniteStack: 0
-  MaxDurability: 0
   SpendableAttributes:
     SpendableAttributesArray:
     - Value: 0
     - Value: 0
   CharacterAttributes:
     itemAttributes:
-    - Value: 20
-    - Value: 15
-    - Value: 9
-    - Value: 2
-    - Value: 7
-  ConsumeEndTimeSeconds: 6
-  RampValueMaxSeconds: 3
+    - Value: 21
+    - Value: 10
+    - Value: 5
+    - Value: 8
+    - Value: 12
+  ConsumeEndTimeSeconds: 5
+  RampValueMaxSeconds: 2
   TickTimeToAddNewAttributes: 0
   EnumConsumeType: 1

@@ -68,7 +68,6 @@ public class PlayerAttributeManager : MonoBehaviour
         {
             attribute += _equipmentManager.RightRing.Item.Attributes;
         }
-        */
         attribute += PlayerBuffManager.Instance.PlayerBuffAttributes;
         CharecterAttributes = attribute;
 

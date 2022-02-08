@@ -14,12 +14,6 @@ public class StackableItemsSplitUI : MonoBehaviour
     [SerializeField]private GameObject _screen;
     [SerializeField]private Slider _slider;
     [SerializeField] private InputField _inputField;
-    [SerializeField] private Button _leftButton;
-    [SerializeField] private Button _rightButton;
-    [SerializeField] private Button _okButton;
-    [SerializeField] private Button _cancelButton;
-
-
     private ItemUiHolder _itemUiHolder;
 
     private int _maxValue;
@@ -37,17 +31,6 @@ public class StackableItemsSplitUI : MonoBehaviour
             _instance = this;
         }
     }
-    private void Start()
-    {
-        _rectTransform = GetComponent<RectTransform>();
-        _slider.onValueChanged.AddListener(OnSliderChange);
-        _inputField.onEndEdit.AddListener(OnEndEdit);
-        _leftButton.onClick.AddListener(DecreaseAmount);
-        _rightButton.onClick.AddListener(IncreaseAmount);
-        _okButton.onClick.AddListener(SplitItem);
-        _cancelButton.onClick.AddListener(HideUI);
-
-    }
     private void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -61,13 +44,18 @@ public class StackableItemsSplitUI : MonoBehaviour
         }
         
     }
-  
+    private void Start()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        _slider.onValueChanged.AddListener(OnSliderChange);
+        _inputField.onEndEdit.AddListener(OnEndEdit);
+    }
 
     public void ShowUI(ItemUiHolder itemUiHolder)
     {
         _itemUiHolder = itemUiHolder;
 
-        _screen.transform.position = itemUiHolder.transform.position;
+        transform.position = itemUiHolder.transform.position;
         //set up my values to the inputs.
         _screen.SetActive(true);
          _maxValue = itemUiHolder.GetAmount();
@@ -106,9 +94,8 @@ public class StackableItemsSplitUI : MonoBehaviour
         if (diference > 0)
         {
             _itemUiHolder.SetAmount(_currentNumber);
-            PlayerInventoryManager.Instance.AddItem(_itemUiHolder.GetItem(), diference,1);
+            PlayerInventoryManager.Instance.AddItem(_itemUiHolder.GetItem(), diference);
         }
-        HideUI();
     }
     public void DecreaseAmount()
     {

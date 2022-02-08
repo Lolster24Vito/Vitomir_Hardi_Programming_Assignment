@@ -18,7 +18,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 54cebee1b9957f348b65f3527f2839fd, type: 3}
   MaxStack: 1
   InfiniteStack: 0
-  MaxDurability: 23
+  MaxDurability: 24
   Attributes:
     itemAttributes:
     - Value: 2

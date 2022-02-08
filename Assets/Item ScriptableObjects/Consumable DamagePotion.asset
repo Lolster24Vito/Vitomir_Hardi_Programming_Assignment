@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 16
   Name: Damage Potion Tick
-  Description: Damages you for 10 in a tick manner
+  Description: Damages you for 10
   Icon: {fileID: 21300000, guid: 478f294d4fa218647858b0c7897026bf, type: 3}
   MaxStack: 99
   InfiniteStack: 0
-  MaxDurability: 0
   SpendableAttributes:
     SpendableAttributesArray:
     - Value: -10
