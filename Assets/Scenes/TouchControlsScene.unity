@@ -4472,9 +4472,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860c6730fdc67d84eafa1d4f74a2b8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxCameraSize: 0
-  _minimumCameraSize: 0
-  _zoomSpeed: 0
+  _maxCameraSize: 30
+  _minimumCameraSize: 1
+  _zoomSpeed: 2
 --- !u!4 &692002542
 Transform:
   m_ObjectHideFlags: 0
@@ -5626,7 +5626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd472a9aa873be4aaf5eaf00471b248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMobile: 1
+  _isMobile: 0
   NormalEventSystem: {fileID: 1526376774}
 --- !u!4 &831350554
 Transform:
@@ -8716,8 +8716,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 154043399}
   m_HandleRect: {fileID: 154043398}
   m_Direction: 2
-  m_Value: 1.0000013
-  m_Size: 0.37975577
+  m_Value: 1.0000014
+  m_Size: 0.37975574
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9722,8 +9722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a4876f5b13cf94ca8e04ca415049f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Content: {fileID: 0}
-  m_Horizontal: 1
+  m_Content: {fileID: 1471985797}
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -9732,7 +9732,7 @@ MonoBehaviour:
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 1373650020}
   m_HorizontalScrollbarVisibility: 0
   m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: 0

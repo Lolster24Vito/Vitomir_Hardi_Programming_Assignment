@@ -21,6 +21,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
     private bool _itemInAir = false;
 
     private bool _firstClick = false;
+    
     private bool _itemsSwitched = false;
 
     private LongPressGesture _longPressGesture;
@@ -392,6 +393,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
             if (Input.touchCount > 0)
             {
                 Touch touch=Input.GetTouch(0);
+                ToolTipManager.Instance.HideToolTip();
                 if (touch.phase==TouchPhase.Ended)
                 {
                     if (_itemInAir)
