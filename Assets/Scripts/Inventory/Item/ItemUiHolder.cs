@@ -32,6 +32,8 @@ public class ItemUiHolder : MonoBehaviour
     public void SwapItems(ref ItemUiHolder itemHolder)
     {
         Item itemFromParameter=itemHolder.GetItem();
+        int amountFromParameter=itemHolder.GetAmount();
+        float durabilityFromParameter=itemHolder.GetDurability();
 
         if (itemFromParameter != null&&_item!=null&& GetItem().Equals(itemFromParameter)&&(_amount+itemHolder._amount<=GetItem().MaxStack||_item.InfiniteStack))
         {
@@ -43,7 +45,7 @@ public class ItemUiHolder : MonoBehaviour
         else
         {
             itemHolder.SetItem(GetItem(), _amount,_durability);
-            SetItem(itemFromParameter, itemHolder._amount,itemHolder._durability);
+            SetItem(itemFromParameter, amountFromParameter, durabilityFromParameter);
         }
     }
     public void SwapItems(ref ItemEquipableUiHolder itemEquipableHolder)

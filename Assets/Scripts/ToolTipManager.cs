@@ -36,7 +36,6 @@ public class ToolTipManager : MonoBehaviour
     }
     public void ShowToolTip(Item item)
     {
-        Debug.Log("Called without durability");
         _parentToHide.SetActive(true);
         _text.text = item.ToString();
         _icon.sprite = item.Icon;
