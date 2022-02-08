@@ -272,10 +272,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
         {
         ToolTipManager.Instance.HideToolTip();
         }
-        if (IsUsingMobile.IsMobile)
-        {
-            ToolTipManager.Instance.HideToolTip();
-        }
+        
     }
     public void DisableInAir()
     {
@@ -286,6 +283,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
         transform.SetParent(_originalParent);
         transform.localPosition = _localPosition;
         _canvasGroup.blocksRaycasts = true;
+        _itemInAirEventArgs = null;
         _itemInAirEventArgs = null;
         }
 
@@ -405,6 +403,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                         DropItem();
 
                             ToolTipManager.Instance.HideToolTip();
+                            StackableItemsSplitUI.Instance.HideUI();
 
                             DisableInAir();
                             //_itemInAir = false;

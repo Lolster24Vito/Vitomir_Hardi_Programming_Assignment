@@ -5626,7 +5626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd472a9aa873be4aaf5eaf00471b248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMobile: 0
+  _isMobile: 1
   NormalEventSystem: {fileID: 1526376774}
 --- !u!4 &831350554
 Transform:
