@@ -118,6 +118,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
         Debug.Log("THISSS");
         if ((_itemEquipableUiHolder != null && _itemEquipableUiHolder.HasItem()) || (_itemUiHolder != null && _itemUiHolder.HasItem())&& !_itemsSwitched)
         {
+        Debug.Log("gotten in");
             _originalParent = transform.parent;
             _localPosition = transform.localPosition;
 
@@ -228,6 +229,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                     PlayerEquipmentManager.Instance.DurabilitySetHelper = _itemUiHolder.GetDurability();
                 }
                 this._itemUiHolder.GetItem().Use();
+                _itemsSwitched = true;
                 if (_itemUiHolder.GetItem() is ItemConsumables)
                 {
                   
@@ -245,6 +247,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
                 }
 
             }
+
         }
 
         if (_itemEquipableUiHolder != null)

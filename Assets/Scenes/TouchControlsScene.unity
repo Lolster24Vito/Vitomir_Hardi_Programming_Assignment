@@ -5100,7 +5100,7 @@ MonoBehaviour:
   _slider: {fileID: 1207618785}
   _inputField: {fileID: 1365790755}
   _leftButton: {fileID: 134999789}
-  _rightButton: {fileID: 134999789}
+  _rightButton: {fileID: 536477524}
   _okButton: {fileID: 273520877}
   _cancelButton: {fileID: 698727234}
 --- !u!224 &798198081 stripped
@@ -5626,7 +5626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd472a9aa873be4aaf5eaf00471b248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMobile: 0
+  _isMobile: 1
   NormalEventSystem: {fileID: 1526376774}
 --- !u!4 &831350554
 Transform:
@@ -8716,8 +8716,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 154043399}
   m_HandleRect: {fileID: 154043398}
   m_Direction: 2
-  m_Value: 1.0000014
-  m_Size: 0.37975574
+  m_Value: 1.0000013
+  m_Size: 0.37975577
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10113,15 +10113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea21b7a6df29604bb5f14ec7bc0df9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onTriggerEnterEvents:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTriggerStayEvents:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTriggerExitEvents:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!61 &1506770416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10194,7 +10185,7 @@ SpriteRenderer:
   m_Size: {x: 2.6666667, y: 2.6666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1506770418
