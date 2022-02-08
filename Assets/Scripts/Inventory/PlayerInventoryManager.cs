@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
@@ -101,11 +102,18 @@ public class PlayerInventoryManager : MonoBehaviour
         {
             if (collision.TryGetComponent<ItemWorld>(out ItemWorld itemWorld))
             {
+                string itemType = "Generic";
                 if (itemWorld.GetItem() is ItemPermanentUse)
                 {
+                    itemType = "Consumable";
                     itemWorld.GetItem().Use();
                     Destroy(collision.gameObject);
                     return;
+                }
+                if(itemWorld.GetItem() is ItemEquipable)
+                {
+                    itemType = "Equipable";
+
                 }
                 if (_items.Count <= MAX_ITEMS)
                 {
@@ -114,6 +122,11 @@ public class PlayerInventoryManager : MonoBehaviour
                     //_inventoryUI.AddItem(itemHolder.GetItem());
                     Destroy(collision.gameObject);
                 }
+                Analytics.CustomEvent("Item picked up", new Dictionary<string, object>
+                {
+                    {"Item name",itemWorld.GetItem().Name},
+                    {"Item type",itemType }
+                });
             }
         }
     }

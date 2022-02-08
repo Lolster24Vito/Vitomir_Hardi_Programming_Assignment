@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -9,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     //had to add _normalEventSystem because the extension for touch gestures for some reason bugged out this:
     //!EventSystem.current.IsPointerOverGameObject(fingerID)
 
-    [SerializeField] EventSystem _normalEventSystem;
     private Vector2 _input;
     // Start is called before the first frame update
     private PlayerMovementPhysics _playerMovementPhysics;
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+
         if (_isMoving)
         {
             if(!IsUsingMobile.IsMobile)
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
                     int fingerID = touch.fingerId;
                     if(touch.phase == TouchPhase.Began)
                     {
-                         if (!_normalEventSystem.IsPointerOverGameObject(fingerID))
+                         if (!IsUsingMobile.Instance.NormalEventSystem.IsPointerOverGameObject(fingerID))
                         {
                             Vector3 touchWorldPosition = camera.ScreenToWorldPoint(touch.position);
                             _playerMovementPhysics.MoveToPoint(touchWorldPosition);
@@ -82,7 +83,17 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         StartMoving();
     }
-   
+
+    private float _timeout = 0.0f;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(Time.time> _timeout)
+        {
+            Analytics.CustomEvent("On Player Collided");
+            _timeout = Time.time+5;
+
+        }
+    }
 
 
 

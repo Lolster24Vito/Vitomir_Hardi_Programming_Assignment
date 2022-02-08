@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerMovementPhysics : MonoBehaviour
 {
@@ -13,11 +14,28 @@ public class PlayerMovementPhysics : MonoBehaviour
     private bool _isMovingToPoint = false;
     private PlayerMovementAnimationManager _playerMovementAnimation;
 
+    private float _unitsMovedAnalytics = 0;
+    private int _currentCallAnalytics = 0;
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerMovementAnimation = GetComponent<PlayerMovementAnimationManager>();
+        OnMoved += Analytics10Units;
+    }
+
+    private void Analytics10Units(float value)
+    {
+        if (_currentCallAnalytics < 5)
+        {
+
+            _unitsMovedAnalytics += value;
+            if (_unitsMovedAnalytics >= 10)
+            {
+                _unitsMovedAnalytics = 0;
+            Analytics.CustomEvent("Moved 10 units");
+            }
+        }
     }
 
     // Update is called once per frame
@@ -31,6 +49,7 @@ public class PlayerMovementPhysics : MonoBehaviour
             _playerMovementAnimation.Move(direction);
             Vector2 moveAmount = Vector2.MoveTowards((Vector2)transform.position, _touchWorldPosition, (_speed * Time.fixedDeltaTime));
             _rigidbody2D.MovePosition(moveAmount);
+            OnMoved?.Invoke((moveAmount-(Vector2)transform.position).magnitude);
 
             RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, direction, 2f);
             if (raycastHit2D.collider != null&&!raycastHit2D.collider.isTrigger)

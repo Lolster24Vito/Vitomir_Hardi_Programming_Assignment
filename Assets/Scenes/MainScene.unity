@@ -4868,7 +4868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282f9d2a061d22241b4fd7a9551a99b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _touchControls: 0
+  _normalEventSystem: {fileID: 1690715224}
 --- !u!61 &718794574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6287,6 +6287,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &895594091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895594093}
+  - component: {fileID: 895594092}
+  m_Layer: 0
+  m_Name: IsMobile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &895594092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895594091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd472a9aa873be4aaf5eaf00471b248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isMobile: 0
+  NormalEventSystem: {fileID: 1690715224}
+--- !u!4 &895594093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895594091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 382.3681, y: 152.07487, z: -3.3903675}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &897939355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7064,7 +7109,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 507634844}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.37975577
+  m_Size: 0.3797557
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

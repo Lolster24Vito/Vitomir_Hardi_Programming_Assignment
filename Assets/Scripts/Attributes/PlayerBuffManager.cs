@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerBuffManager : MonoBehaviour
 {
@@ -53,6 +54,11 @@ public class PlayerBuffManager : MonoBehaviour
             default:
                 break;
         }
+        Analytics.CustomEvent("Item Consumed", new Dictionary<string, object>
+                {
+                    {"Item name",itemConsumables.Name},
+                    {"Item type",itemConsumables.EnumConsumeType}
+                });
     }
     private void HoldBonus(ItemConsumables itemConsumables)
     {

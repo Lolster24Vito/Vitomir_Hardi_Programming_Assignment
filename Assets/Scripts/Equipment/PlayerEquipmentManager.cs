@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerEquipmentManager : MonoBehaviour
 {
@@ -78,69 +79,7 @@ public class PlayerEquipmentManager : MonoBehaviour
                 }
             }
         }
-        /*
-                if (_torso != null)
-        {
-            _torso.CurrentDurability -= moveAmount;
-            OnItemDurabilityChange?.Invoke(EnumEquipmentSlot.Torso, _torso.CurrentDurability);
-            if (_torso.CurrentDurability == 0)
-            {
-                RemoveItem(EnumEquipmentSlot.Torso);
-            }
-        }
-                if (_head != null)
-        {
-            _head.CurrentDurability -= moveAmount;
-            if (_head.CurrentDurability == 0)
-            {
-                RemoveItem(EnumEquipmentSlot.Head);
-            }
-        }
-
-                if (_weapon != null)
-        {
-            _weapon.CurrentDurability -= moveAmount;
-            if (_weapon.CurrentDurability == 0)
-            {
-                RemoveItem(EnumEquipmentSlot.Weapon);
-            }
-        }
-
-        
-                if (_shield != null)
-        {
-            _shield.CurrentDurability -= moveAmount;
-            if (_shield.CurrentDurability == 0)
-            {
-                RemoveItem(EnumEquipmentSlot.Shield);
-            }
-        }
-
-        if (_boots != null)
-        {
-            _boots.CurrentDurability -= moveAmount;
-            if (_boots.CurrentDurability == 0)
-            {
-                RemoveItem(EnumEquipmentSlot.Boots);
-            }
-        }
-        if (_leftRing != null)
-        {
-            _leftRing.CurrentDurability -= moveAmount;
-            if (_leftRing.CurrentDurability == 0)
-            {
-                RemoveItem(EnumEquipmentSlot.LeftRing);
-            }
-        }
-        if (_rightRing != null)
-        {
-            _rightRing.CurrentDurability -= moveAmount;
-            if (_rightRing.CurrentDurability == 0)
-            {
-                RemoveItem(EnumEquipmentSlot.RightRing);
-            }
-        }
-           */
+       
 
     }
 
@@ -160,57 +99,17 @@ public class PlayerEquipmentManager : MonoBehaviour
                 {
                     swappedItem = EquipmentSlots[i].Item;
                     EquipmentSlots[i].Item = itemIndividual;
+                    Analytics.CustomEvent("Item Equipped", new Dictionary<string, object>
+                {
+                    {"Item name",item.Name},
+                    {"Item slot",EquipmentSlots[i].EquipmentSlot }
+                });
                 }
             }
-        /*
-        switch (ItemSlotToChange)
-        {
-            case EnumEquipmentSlot.Torso:
-                if(_torso!=null)
-                swappedItem = _torso;
-                _torso = itemIndividual;
-                break;
-            case EnumEquipmentSlot.Head:
-                if(_head!=null)
-                swappedItem = _head;
-                _head = itemIndividual;
-                break;
-            case EnumEquipmentSlot.Weapon:
-                if(_weapon!=null)
-                swappedItem = _weapon;
-                _weapon = itemIndividual;
-                break;
-            case EnumEquipmentSlot.Shield:
-                if(_shield!=null)
-                swappedItem = _shield;
-                _shield = itemIndividual;
-                break;
-            case EnumEquipmentSlot.Boots:
-                if (_boots != null)
-                    swappedItem = _boots;
-                _boots = itemIndividual;
-                break;
-            case EnumEquipmentSlot.LeftRing:
-                if (_leftRing != null)
-                    swappedItem = _leftRing;
-                _leftRing = itemIndividual;
-
-                break;
-            case EnumEquipmentSlot.RightRing:
-                if (_rightRing != null)
-                    swappedItem = _rightRing;
-                _rightRing = itemIndividual;
-
-                break;
-
-            default:
-                break;
-        }
-        */
+        
         else
         {
             string name = item.EquipmentType.ToString();
-            Debug.Log(name + "nameee");
             if (item.EquipmentType == EnumEquipmentType.Ring)
             {
               EquipmentSlotType _leftRing=GetEquipmentSlot(EnumEquipmentSlot.LeftRing);
@@ -245,63 +144,12 @@ public class PlayerEquipmentManager : MonoBehaviour
                     ItemSlotToChange = EquipmentSlots[i].EquipmentSlot;
                 }
             }
+            Analytics.CustomEvent("Item Equipped", new Dictionary<string, object>
+                {
+                    {"Item name",item.Name},
+                    {"Item slot",ItemSlotToChange }
+                });
 
-
-           /* switch (item.EquipmentType)
-            {
-                case EnumEquipmentType.Torso:
-                    if (_torso != null)
-                        swappedItem = _torso;
-                    _torso = itemIndividual;
-                    ItemSlotToChange = EnumEquipmentSlot.Torso;
-                    break;
-                case EnumEquipmentType.Head:
-                    if (_head != null)
-                        swappedItem = _head;
-                    _head = itemIndividual;
-                    ItemSlotToChange = EnumEquipmentSlot.Head;
-                    break;
-                case EnumEquipmentType.Weapon:
-                    if (_weapon != null)
-                        swappedItem = _weapon;
-                    _weapon = itemIndividual;
-                    ItemSlotToChange = EnumEquipmentSlot.Weapon;
-                    break;
-                case EnumEquipmentType.Shield:
-                    if (_shield != null)
-                        swappedItem = _shield;
-                    _shield = itemIndividual;
-                    ItemSlotToChange = EnumEquipmentSlot.Shield;
-                    break;
-                case EnumEquipmentType.Boots:
-                    if (_boots != null)
-                        swappedItem = _boots;
-                    _boots = itemIndividual;
-                    ItemSlotToChange = EnumEquipmentSlot.Boots;
-                    break;
-                case EnumEquipmentType.Ring:
-                    //cases where i pick left ring
-                    if (_leftRing == null || (_leftRing != null && _rightRing != null))
-                    {
-                        if(_leftRing!=null)
-                        swappedItem = _leftRing;
-                    _leftRing = itemIndividual;
-                    ItemSlotToChange = EnumEquipmentSlot.LeftRing;
-
-                    }
-                    else
-                    {
-                        if (_rightRing == null)
-                        {
-                            ItemSlotToChange = EnumEquipmentSlot.RightRing;
-                            _rightRing = itemIndividual;
-                        }
-                    }
-                    
-                    break;
-                default:
-                    break;
-            }*/
         }
         _changeSpecificItemSlot = false;
         OnItemEquipped?.Invoke(itemIndividual, ItemSlotToChange);

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class WindowPopUp : MonoBehaviour
 {
@@ -35,6 +36,13 @@ public class WindowPopUp : MonoBehaviour
         if (!_showingScreen)
         {
             onScreenHide?.Invoke();
+        }
+        else
+        {
+            Analytics.CustomEvent("Window Opened", new Dictionary<string, object>
+                {
+                    {"Window Type",gameObject.name},
+                });
         }
         _screen.SetActive(_showingScreen);
         _button.SetActive(!_showingScreen);

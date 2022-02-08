@@ -4454,7 +4454,7 @@ MonoBehaviour:
   OnTransformComplete:
     m_PersistentCalls:
       m_Calls: []
-  type: 4
+  type: 7
   screenTransformThreshold: 0.1
   minScreenPointsDistance: 0.5
   projectionProps: 0
@@ -4472,9 +4472,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860c6730fdc67d84eafa1d4f74a2b8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxCameraSize: 12
-  _minimumCameraSize: 2
-  _zoomSpeed: 4
+  _maxCameraSize: 0
+  _minimumCameraSize: 0
+  _zoomSpeed: 0
 --- !u!4 &692002542
 Transform:
   m_ObjectHideFlags: 0
@@ -5077,7 +5077,7 @@ RectTransform:
   m_Children:
   - {fileID: 663432244}
   m_Father: {fileID: 1880320347}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5100,7 +5100,7 @@ MonoBehaviour:
   _slider: {fileID: 1207618785}
   _inputField: {fileID: 1365790755}
   _leftButton: {fileID: 134999789}
-  _rightButton: {fileID: 536477524}
+  _rightButton: {fileID: 134999789}
   _okButton: {fileID: 273520877}
   _cancelButton: {fileID: 698727234}
 --- !u!224 &798198081 stripped
@@ -5626,7 +5626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd472a9aa873be4aaf5eaf00471b248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMobile: 1
+  _isMobile: 0
   NormalEventSystem: {fileID: 1526376774}
 --- !u!4 &831350554
 Transform:
@@ -7387,6 +7387,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9af4dbee5827fb408fa1234096fa208, type: 3}
+--- !u!1 &1234887997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234887998}
+  - component: {fileID: 1234887999}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1234887998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234887997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1234887999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234887997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 932d4eb6e6ed9d44487def6fb5bca45e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1258932029
 GameObject:
   m_ObjectHideFlags: 0
@@ -9102,13 +9145,13 @@ MonoBehaviour:
   basicEditor: 1
   advancedProps: 0
   hitProps: 0
-  hit3DObjects: 0
-  hit2DObjects: 0
-  hitWorldSpaceUI: 0
+  hit3DObjects: 1
+  hit2DObjects: 1
+  hitWorldSpaceUI: 1
   hitScreenSpaceUI: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 4294967295
   useHitFilters: 0
 --- !u!1 &1427402728
 GameObject:
@@ -9679,8 +9722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a4876f5b13cf94ca8e04ca415049f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Content: {fileID: 1471985797}
-  m_Horizontal: 0
+  m_Content: {fileID: 0}
+  m_Horizontal: 1
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -9689,7 +9732,7 @@ MonoBehaviour:
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 1373650020}
+  m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 0
   m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: 0
@@ -10072,40 +10115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onTriggerEnterEvents:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1421226121}
-        m_MethodName: FocusOnObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1506770418}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1421226121}
-        m_MethodName: ReturnFocusToPlayerInTime
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 3
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1822523139}
-        m_MethodName: StopMovementForAmount
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 3
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _onTriggerStayEvents:
     m_PersistentCalls:
       m_Calls: []
@@ -10422,7 +10432,7 @@ RectTransform:
   m_Children:
   - {fileID: 1398333269}
   m_Father: {fileID: 1880320347}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -11353,7 +11363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282f9d2a061d22241b4fd7a9551a99b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalEventSystem: {fileID: 1526376774}
 --- !u!114 &1822523140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11560,6 +11569,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 338579086}
+  - {fileID: 1914286527}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12015,9 +12025,9 @@ RectTransform:
   - {fileID: 1581659089}
   - {fileID: 1937381278}
   - {fileID: 2106694276}
-  - {fileID: 1999037452}
   - {fileID: 796929651}
   - {fileID: 1535314496}
+  - {fileID: 1999037452}
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12026,6 +12036,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1914286526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1914286527}
+  m_Layer: 0
+  m_Name: AnalyticsTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1914286527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914286526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1822523150}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923063072
 GameObject:
   m_ObjectHideFlags: 0
@@ -12246,7 +12286,7 @@ RectTransform:
   m_Children:
   - {fileID: 865122949}
   m_Father: {fileID: 1880320347}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -13097,12 +13137,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1c4dd8a13f501b04f84fe824120f70bb, type: 3}
       propertyPath: layers.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1c4dd8a13f501b04f84fe824120f70bb, type: 3}
       propertyPath: layers.Array.data[0]
       value: 
       objectReference: {fileID: 1421226125}
+    - target: {fileID: 11400000, guid: 1c4dd8a13f501b04f84fe824120f70bb, type: 3}
+      propertyPath: layers.Array.data[1]
+      value: 
+      objectReference: {fileID: 692002539}
     - target: {fileID: 11478012, guid: 1c4dd8a13f501b04f84fe824120f70bb, type: 3}
       propertyPath: emulateSecondMousePointer
       value: 1
