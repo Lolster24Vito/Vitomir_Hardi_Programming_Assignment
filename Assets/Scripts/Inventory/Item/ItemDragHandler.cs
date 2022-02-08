@@ -115,10 +115,8 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
    
     private void CheckAndAddItemToAir()
     {
-        Debug.Log("THISSS");
         if ((_itemEquipableUiHolder != null && _itemEquipableUiHolder.HasItem()) || (_itemUiHolder != null && _itemUiHolder.HasItem())&& !_itemsSwitched)
         {
-        Debug.Log("gotten in");
             _originalParent = transform.parent;
             _localPosition = transform.localPosition;
 
