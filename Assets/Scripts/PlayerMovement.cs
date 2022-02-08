@@ -14,9 +14,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private PlayerMovementPhysics _playerMovementPhysics;
     private PlayerMovementAnimationManager _playerMovementAnimationManager;    // Update is called once per frame
+<<<<<<< HEAD
     private bool _isMoving = true;
     private Camera camera;
 
+=======
+>>>>>>> parent of 5f47e54 (Merge branch 'UpdatePlayerCamera' into production)
     private void Start()
     {
         _playerMovementPhysics=GetComponent<PlayerMovementPhysics>();
@@ -25,10 +28,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+<<<<<<< HEAD
 
         if (_isMoving)
         {
             if(!IsUsingMobile.IsMobile)
+=======
+>>>>>>> parent of 5f47e54 (Merge branch 'UpdatePlayerCamera' into production)
         _input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             else
             {
@@ -63,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         _playerMovementPhysics.Move(_input);
        
     }
+<<<<<<< HEAD
     private void StopMoving()
     {
         _isMoving = false;
@@ -96,5 +103,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+=======
+>>>>>>> parent of 5f47e54 (Merge branch 'UpdatePlayerCamera' into production)
 
 }
