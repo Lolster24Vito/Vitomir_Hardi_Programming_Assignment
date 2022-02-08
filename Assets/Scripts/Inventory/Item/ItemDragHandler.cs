@@ -277,7 +277,7 @@ public class ItemDragHandler : MonoBehaviour,IPointerClickHandler,IPointerEnterH
     }
     public void DisableInAir()
     {
-
+        Debug.Log("Disable in air");
         if (_itemInAir)
         {
             _itemInAir = false;

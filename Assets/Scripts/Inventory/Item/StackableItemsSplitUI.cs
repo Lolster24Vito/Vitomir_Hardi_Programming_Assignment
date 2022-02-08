@@ -94,7 +94,7 @@ public class StackableItemsSplitUI : MonoBehaviour
         if (diference > 0)
         {
             _itemUiHolder.SetAmount(_currentNumber);
-            PlayerInventoryManager.Instance.AddItem(_itemUiHolder.GetItem(), diference,1);
+            PlayerInventoryManager.Instance.AddItem(_itemUiHolder.GetItem(), diference);
         }
     }
     public void DecreaseAmount()
